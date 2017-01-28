@@ -1,5 +1,5 @@
 server:
-  port:  8081
+  port:  8888
 
 spring:
   cloud:
@@ -8,3 +8,8 @@ spring:
         git:
           uri: https://github.com/coffeine-009/config.git
           basedir: build/config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
