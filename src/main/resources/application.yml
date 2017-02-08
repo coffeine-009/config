@@ -6,8 +6,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/coffeine-009/config.git
-          basedir: build/config
+          uri: https://github.com/coffeine-009/virtuoso-config.git
+          basedir: build/virtuoso-config
 
 eureka:
   client:

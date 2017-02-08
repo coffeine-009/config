@@ -39,6 +39,13 @@ dependencyManagement {
 
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-config-server'
+    compile "org.springframework.boot:spring-boot-starter-undertow"
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+    compile 'org.springframework.cloud:spring-cloud-config-server'
+    compile 'org.springframework.cloud:spring-cloud-config-monitor'
+    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+    compile 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.11'
