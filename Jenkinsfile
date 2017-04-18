@@ -1,4 +1,5 @@
-node {
+pipeline {
+    agent any
     stages {
         stage('Download sources') {
             steps {
@@ -10,4 +11,3 @@ node {
         }
     }
 }
-
