@@ -14,9 +14,7 @@ pipeline {
         }
         stage("Assemble image") {
             agent {
-                dockerfile {
-                    label "thecoffeine/config"
-                }
+                dockerfile: true
             }
             steps {
                 sh "echo 'ok'"
