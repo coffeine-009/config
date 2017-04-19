@@ -13,9 +13,8 @@ pipeline {
             }
         }
         stage("Assemble image") {
-            agent { dockerfile true }
             steps {
-                sh "echo 'ok'"
+                sh "docker build --rm -t thecoffeine/config ."
             }
         }
     }
