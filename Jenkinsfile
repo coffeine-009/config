@@ -10,13 +10,6 @@ pipeline {
             agent { docker 'gradle:jdk8' }
             steps {
                 sh "./gradlew clean check build"
-                sh "ls -al build/"
-                sh "pwd"
-            }
-        }
-        stage("Assemble image") {
-            steps {
-                sh "ls -al build/"
                 sh "docker build --rm -t thecoffeine/config ."
             }
         }
