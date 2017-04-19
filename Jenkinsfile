@@ -7,12 +7,7 @@ pipeline {
             }
         }
         stage('Build') {
-            agent {
-                docker {
-                    image 'gradle:jdk8'
-                    args '-v .:/home/gradle/Config'
-                }
-            }
+            agent { docker 'gradle:jdk8' }
             steps {
                 sh "./gradlew clean check build"
                 sh "ls -al build/"
