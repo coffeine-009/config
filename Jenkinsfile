@@ -7,6 +7,7 @@ pipeline {
             }
         }
         stage('Build') {
+            agent { docker 'gradle:jdk8' }
             steps {
                 sh "./gradlew clean check build"
             }
