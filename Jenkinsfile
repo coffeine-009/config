@@ -13,6 +13,11 @@ pipeline {
                 sh "docker build --rm -t thecoffeine/config ."
             }
         }
+        stage("Publish image") {
+            steps {
+                sh "docker push thecoffeine/config"
+            }
+        }
     }
 
     post {
