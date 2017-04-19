@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Assemble image") {
             steps {
-                sh "ls -al"
+                sh "ls -al build/"
                 sh "docker build --rm -t thecoffeine/config ."
             }
         }
