@@ -13,9 +13,7 @@ pipeline {
             }
         }
         stage("Assemble image") {
-            agent {
-                dockerfile: true
-            }
+            agent { dockerfile true }
             steps {
                 sh "echo 'ok'"
             }
