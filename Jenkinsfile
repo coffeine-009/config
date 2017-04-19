@@ -12,5 +12,22 @@ pipeline {
                 sh "./gradlew clean check build"
             }
         }
+        stage("Assemble image") {
+            agent {
+                dockerfile {
+                    label "thecoffeine/config"
+                }
+            }
+            steps {
+
+            }
+        }
+    }
+
+    post {
+        always {
+            archive 'build/libs/**/*.jar'
+//            junit 'build/reports/**/*.xml'
+        }
     }
 }
