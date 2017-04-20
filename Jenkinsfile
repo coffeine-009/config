@@ -7,7 +7,6 @@ pipeline {
             }
         }
         stage('Build') {
-            agent { docker 'gradle:jdk8' }
             steps {
                 sh "./gradlew clean check build"
                 sh "docker build --rm -t thecoffeine/config ."
