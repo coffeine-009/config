@@ -19,7 +19,9 @@ pipeline {
         }
         stage('Build image') {
             steps {
-                sh "docker build --rm -t thecoffeine/config ."
+                script {
+                    docker.build('thecoffeine/config')
+                }
             }
         }
         stage("Publish image") {
