@@ -7,15 +7,25 @@ pipeline {
             }
         }
         stage('Build') {
+            agent {
+                docker {
+                    image 'gradle:jdk8'
+                    reuseNode true
+                }
+            }
             steps {
                 sh "./gradlew clean check build"
+            }
+        }
+        stage('Build image') {
+            steps {
                 sh "docker build --rm -t thecoffeine/config ."
             }
         }
         stage("Publish image") {
             steps {
                 withDockerRegistry([credentialsId: 'thecoffeine', url: 'https://registry.hub.docker.com']) {
-                    docker.image('thecoffeine/config').push('latest')
+                    sh 'docker push thecoffeine/config'
                 }
             }
         }
