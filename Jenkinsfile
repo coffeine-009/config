@@ -24,8 +24,10 @@ pipeline {
         }
         stage("Publish image") {
             steps {
-                withDockerRegistry([credentialsId: 'thecoffeine', url: 'https://registry.hub.docker.com']) {
-                    sh 'docker push thecoffeine/config'
+                script {
+                    docker.withDockerRegistry([credentialsId: 'thecoffeine', url: 'https://registry.hub.docker.com']) {
+                        docker.image('thecoffeine/config').push('latest')
+                    }
                 }
             }
         }
