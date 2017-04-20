@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Publish image") {
             steps {
-                docker.withDockerRegistry([credentialsId: 'thecoffeine', url: 'https://registry.hub.docker.com']) {
+                withDockerRegistry([credentialsId: 'thecoffeine', url: 'https://registry.hub.docker.com']) {
                     docker.image('thecoffeine/config').push('latest')
                 }
             }
