@@ -14,7 +14,9 @@ pipeline {
         }
         stage("Publish image") {
             steps {
-                sh "docker push thecoffeine/config"
+                withDockerRegistry([credentialsId: 'thecoffeine', url: 'https://registry.hub.docker.com']) {
+                    sh "docker push thecoffeine/config"
+                }
             }
         }
     }
