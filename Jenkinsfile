@@ -37,8 +37,8 @@ pipeline {
         }
         success {
             slackSend channel: '#release',
-                    color: 'good',
-                    message: "@channel ${env.JOB_NAME}:${env.BUILD_NUMBER} is released. ${currentBuild.fullDisplayName}. Configuration server has released ${env.BUILD_NUMBER} version."
+                color: 'good',
+                message: "@channel Configuration server has been released. \nVersion:${env.BUILD_NUMBER}."
         }
     }
 }
