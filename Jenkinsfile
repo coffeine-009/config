@@ -9,7 +9,7 @@ pipeline {
                 }
             }
             steps {
-                sh "./gradlew clean check build"
+                sh "./gradlew clean assemble check build"
             }
         }
         stage('Build image') {
@@ -33,7 +33,12 @@ pipeline {
     post {
         always {
             archive 'build/libs/**/*.jar'
-//            junit 'build/reports/**/*.xml'
+            junit 'build/test-results/**/*.xml'
+        }
+        success {
+            slackSend channel: '#release',
+                    color: 'good',
+                    message: "@channel ${env.JOB_NAME}:${env.BUILD_NUMBER} is released. ${currentBuild.fullDisplayName}. Configuration server has released ${env.BUILD_NUMBER} version."
         }
     }
 }
