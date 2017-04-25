@@ -40,5 +40,20 @@ pipeline {
                 color: 'good',
                 message: "@channel Configuration server has been released. \nVersion:${env.BUILD_NUMBER}."
         }
+        failure {
+            slackSend channel: '#release',
+                color: 'danger',
+                message: "@channel Configuration server hasn't been released. \nVersion:${env.BUILD_NUMBER} is failed."
+        }
+        unstable {
+            slackSend channel: '#release',
+                color: 'warning',
+                message: "@channel Configuration server's build #${env.BUILD_NUMBER} is unstable."
+        }
+        changed {
+            slackSend channel: '#release',
+                color: 'warning',
+                message: "@channel Configuration server's build #${env.BUILD_NUMBER} is changed."
+        }
     }
 }
