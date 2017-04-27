@@ -6,6 +6,7 @@ pipeline {
                 docker {
                     image 'gradle:jdk8'
                     reuseNode true
+                    args '-v ~/.ssh:/root/.ssh'
                 }
             }
             steps {
