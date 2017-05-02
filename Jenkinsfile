@@ -11,11 +11,13 @@ pipeline {
                 docker {
                     image 'gradle:jdk8'
                     reuseNode true
-                    args '-v /var/lib/jenkins/.ssh:/home/gradle/.ssh'
                 }
             }
             steps {
-                sh "./gradlew clean assemble check build clean release"
+                sh "./gradlew clean assemble check build"
+                sshagent(['b2c5042a-d992-49e5-994a-7ae4bfc4a0bf']) {
+                    sh "./gradlew clean release"
+                }
             }
         }
         stage('Build image') {
