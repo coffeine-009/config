@@ -22,7 +22,7 @@ pipeline {
                 docker {
                     image 'gradle:jdk8'
                     reuseNode true
-                    args '-v /etc/passwd:/etc/passwd'
+                    args '-v /etc/passwd:/etc/passwd -v /var/lib/jenkins:/var/lib/jenkins'
                 }
             }
             steps {
