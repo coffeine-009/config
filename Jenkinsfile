@@ -42,12 +42,12 @@ pipeline {
         success {
             slackSend channel: '#release',
                 color: 'good',
-                message: "@channel Configuration server has been released. \nVersion:${env.BUILD_NUMBER}."
+                message: "@channel Configuration server has released. \nVersion:${env.BUILD_NUMBER}."
         }
         failure {
             slackSend channel: '#release',
                 color: 'danger',
-                message: "@channel Configuration server hasn't been released. \nVersion:${env.BUILD_NUMBER} is failed."
+                message: "@channel Configuration server hasn't released. \nVersion:${env.BUILD_NUMBER} is failed."
         }
         unstable {
             slackSend channel: '#release',
