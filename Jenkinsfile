@@ -7,19 +7,13 @@ pipeline {
             }
         }
         stage('Build') {
-            agent {
-                docker {
-                    image 'gradle:jdk8'
-                    reuseNode true
-                }
-            }
             steps {
                 sh "./gradlew clean assemble check build"
             }
         }
         stage('Release') {
             steps {
-                sh "./gradlew release"
+                sh "./gradlew clean release"
             }
         }
         stage('Build image') {
