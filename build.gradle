@@ -34,9 +34,9 @@ release {
     failOnUnversionedFiles = true
     failOnUpdateNeeded = true
     revertOnFail = true
-    preTagCommitMessage = 'Release current version.'
+    preTagCommitMessage = 'Release. [ci skip]'
     tagCommitMessage = 'Release.'
-    newVersionCommitMessage = 'Increment version.'
+    newVersionCommitMessage = 'Increment version. [ci skip]'
     tagTemplate = '${version}'
     versionPropertyFile = 'gradle.properties'
     versionProperties = []
