@@ -20,6 +20,20 @@ pipeline {
                 }
             }
         }
+        stage('Release') {
+            agent {
+                docker {
+                    image 'gradle:jdk8'
+                    reuseNode true
+                    args '-v /etc/passwd:/etc/passwd'
+                }
+            }
+            steps {
+                sshagent(['b2c5042a-d992-49e5-994a-7ae4bfc4a0bf']) {
+                    sh "./gradlew clean release"
+                }
+            }
+        }
         stage('Build image') {
             steps {
                 script {
