@@ -18,15 +18,8 @@ pipeline {
             }
         }
         stage('Release') {
-            agent {
-                docker {
-                    image 'gradle:jdk8'
-                    reuseNode true
-                    args '-v /etc/passwd:/etc/passwd -v /var/lib/jenkins:/var/lib/jenkins'
-                }
-            }
             steps {
-                sh "./gradlew clean release"
+                sh "./gradlew release"
             }
         }
         stage('Build image') {
