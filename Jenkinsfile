@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Release') {
             steps {
-                sh "./gradlew clean assemble release"
+                sh "./gradlew clean release"
             }
         }
         stage('Build image') {
