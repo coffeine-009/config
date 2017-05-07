@@ -38,16 +38,9 @@ jacocoTestReport {
 check.dependsOn jacocoTestReport
 
 release {
-    failOnCommitNeeded = true
-    failOnPublishNeeded = true
-    failOnSnapshotDependencies = true
-    failOnUnversionedFiles = true
-    failOnUpdateNeeded = true
-    revertOnFail = true
     preTagCommitMessage = 'Release. [ci skip]'
     tagCommitMessage = 'Release.'
     newVersionCommitMessage = 'Increment version. [ci skip]'
-    tagTemplate = '${version}'
     versionPropertyFile = 'gradle.properties'
     versionProperties = []
     buildTasks = ['build']
