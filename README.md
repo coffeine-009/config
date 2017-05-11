@@ -12,7 +12,7 @@ Configuration server for micro-services.
 ```bash
 docker build --rm -t thecoffeine/config .
 docker run -p 8888:8888 -d thecoffeine/config
-docker run -it thecoffeine/config bash
+docker exec -it {CONTAINER_NAME} bash
 ```
 
 _(Coming soon)_
