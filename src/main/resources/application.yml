@@ -2,17 +2,19 @@ server:
   port:  8888
 
 spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/coffeine-009/virtuoso-config.git
-          basedir: build/virtuoso-config
   rabbitmq:
     host: rabbitmq
     port: 5672
     username: virtuoso
     password: virtuoso
+  cloud:
+    bus:
+      enabled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/coffeine-009/virtuoso-config.git
+          basedir: build/virtuoso-config
 
 eureka:
   client:
