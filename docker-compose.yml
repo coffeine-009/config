@@ -13,10 +13,13 @@ services:
     image: coffeine/config
     build:
       context: .
+      dockerfile: Dockerfile-dev
     environment:
       VCAP_APPLICATION_PORT: 8888
     ports:
       - "8888:8888"
+    volumes:
+      - .:/opt/config:rw
     links:
       - discovery
     depends_on:
