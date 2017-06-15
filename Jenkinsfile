@@ -35,7 +35,7 @@ pipeline {
             junit 'build/test-results/**/*.xml'
         }
         success {
-            sh "docker rmi thecoffeine/config"
+            sh "docker rmi thecoffeine/config registry.hub.docker.com/thecoffeine/config"
             slackSend channel: '#release',
                 color: 'good',
                 message: "@channel Configuration server has released. \nVersion:${env.BUILD_NUMBER}."
