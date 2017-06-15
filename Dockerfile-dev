@@ -1,0 +1,10 @@
+#- Base image -#
+FROM java:8
+
+# Author
+MAINTAINER TheCoffeine, Inc <vitaliy.tsutsman@musician-virtuoso.com>
+
+#- Default run command -#
+CMD ["./gradlew", "clean", "build", "bootRun"]
+
+WORKDIR /opt/config
