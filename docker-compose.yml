@@ -1,0 +1,46 @@
+---
+##
+# Configuration of docker compose.
+# Link and run related images.
+#
+
+version: '2'
+
+services:
+  #- Infrastructure :: Support servers -#
+  #- Configuration -#
+  config:
+    image: coffeine/config
+    build:
+      context: .
+    environment:
+      VCAP_APPLICATION_PORT: 8888
+    ports:
+      - "8888:8888"
+    links:
+      - discovery
+    depends_on:
+      - rabbitmq
+
+  #- Discovery -#
+  discovery:
+    image: coffeine/discovery
+    build:
+      context: ../Discovery
+    environment:
+      VCAP_APPLICATION_PORT: 8761
+    ports:
+      - "8761:8761"
+    links:
+      - rabbitmq
+
+  #- JMS :: RabitMQ -#
+  rabbitmq:
+    image: rabbitmq:3.6-management
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "virtuoso"
+      RABBITMQ_DEFAULT_PASS: "virtuoso"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
