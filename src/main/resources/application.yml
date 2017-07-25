@@ -19,4 +19,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://discovery.thecoffeine.com:8761/eureka/
