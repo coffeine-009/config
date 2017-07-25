@@ -22,8 +22,8 @@ services:
       - .:/opt/config:rw
     links:
       - discovery
-    depends_on:
-      - rabbitmq
+#    depends_on:
+#      - rabbitmq
 
   #- Discovery -#
   discovery:
@@ -34,16 +34,16 @@ services:
       VCAP_APPLICATION_PORT: 8761
     ports:
       - "8761:8761"
-    links:
-      - rabbitmq
+#    links:
+#      - rabbitmq
 
-  #- JMS :: RabitMQ -#
-  rabbitmq:
-    image: rabbitmq:3.6-management
-    hostname: rabbitmq
-    environment:
-      RABBITMQ_DEFAULT_USER: "virtuoso"
-      RABBITMQ_DEFAULT_PASS: "virtuoso"
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+#  #- JMS :: RabitMQ -#
+#  rabbitmq:
+#    image: rabbitmq:3.6-management
+#    hostname: rabbitmq
+#    environment:
+#      RABBITMQ_DEFAULT_USER: "virtuoso"
+#      RABBITMQ_DEFAULT_PASS: "virtuoso"
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
